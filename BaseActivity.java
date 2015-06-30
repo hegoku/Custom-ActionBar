@@ -14,9 +14,9 @@ import android.widget.TextView;
 public abstract class BaseActivity extends Activity implements OnClickListener{
 
 	private TextView mTitleTextView;
-  private Button mBackwardbButton;
-  private Button mForwardButton;
-  private FrameLayout mContentLayout;
+	private TextView mBackwardbButton;
+	private TextView mForwardButton;
+	private FrameLayout mContentLayout;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +28,11 @@ public abstract class BaseActivity extends Activity implements OnClickListener{
 
 		mTitleTextView = (TextView) findViewById(R.id.text_title);
         mContentLayout = (FrameLayout) findViewById(R.id.layout_content);
-        mBackwardbButton = (Button) findViewById(R.id.button_backward);
-        mForwardButton = (Button) findViewById(R.id.button_forward);
+        mBackwardbButton = (TextView) findViewById(R.id.button_backward);
+        mForwardButton = (TextView) findViewById(R.id.button_forward);
+
+        mForwardButton.setOnClickListener(this);
+        mBackwardbButton.setOnClickListener(this);
 	}
 
 	//取出FrameLayout并调用父类removeAllViews()方法
